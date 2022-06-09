@@ -1,0 +1,9 @@
+.app{
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 30px auto 30px auto;
+    color: #616161;
+}
