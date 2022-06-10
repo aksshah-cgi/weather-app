@@ -1,4 +1,11 @@
 .headline{
+    margin-top: 5px;
     font-size: 50px;
     margin-bottom: 0px;
+}
+.header{
+    text-align: center;
+}
+h2{
+    margin: 0;
 }

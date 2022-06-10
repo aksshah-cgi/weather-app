@@ -3,7 +3,10 @@ import './Header.css'
 
 const Header:React.FC = () => {
   return (
-    <h1 className='headline'>3-Day Forecast</h1>
+    <div className="header">
+     <h2>Welcome to</h2>
+     <h1 className='headline'>3-Day Weather Forecast</h1>
+    </div>
   )
 }
 

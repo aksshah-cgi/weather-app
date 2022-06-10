@@ -1,0 +1,16 @@
+input{
+    text-align: center;
+    padding: 5px 15px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid grey;
+    color: #616161;
+    font-size: 18px;
+}
+.input_wrapper{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px 0px 0px;
+    border: none;
+}

@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Forecast from './components/Forecast/Forecast';
+import CardsWrapper from './components/CardsWrapper/CardsWrapper';
 import Header from './components/Header/Header';
+import SearchBox from './components/SearchBox/SearchBox';
 
 function App() {
+  const [weatherData,setWeatherData] = useState<any>({})
+
+  const updateData = (data:any) => {
+    setWeatherData(data);
+  }
+
   return (
     <div className="app">
       <Header/>
-      <Forecast/>
+      <SearchBox onSearch={updateData}/>
+      <CardsWrapper weatherData={weatherData}/>
     </div>
   );
 }
