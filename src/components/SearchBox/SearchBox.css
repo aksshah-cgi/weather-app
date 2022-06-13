@@ -1,4 +1,4 @@
-input{
+input {
     text-align: center;
     padding: 5px 15px;
     border-radius: 2px;
@@ -8,7 +8,8 @@ input{
     color: #616161;
     font-size: 18px;
 }
-.input_wrapper{
+
+.input_wrapper {
     display: flex;
     justify-content: center;
     margin: 30px 0px 0px 0px;
