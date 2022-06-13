@@ -9,6 +9,7 @@ function App() {
 
   const updateData = (data:any) => {
     setWeatherData(data);
+    console.log(data);
   }
 
   return (

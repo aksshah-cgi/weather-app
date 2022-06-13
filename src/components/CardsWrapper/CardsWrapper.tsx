@@ -1,16 +1,23 @@
 import React, {useState} from 'react'
-import Card from '../Card/Card'
+import Card from './Card/Card'
 import './CardsWrapper.css'
 
 
 interface day{
   date:string;
+  astro:{
+    sunrise:string;
+    sunset:string;
+  }
   day:{
-    avgtemp_C:number;
+    avgtemp_c:number;
     condition:{
       text:string;
       icon:string;
-    }
+    };
+    mintemp_c:number;
+    maxtemp_c:number;
+    avghumidity:number;
   }
 }
 
@@ -50,7 +57,18 @@ const CardsWrapper:React.FC<Props> = ({weatherData}) => {
           <div className="cards_container">
             {weatherData.data.forecast && weatherData.data.location &&
             Object.values(weatherData.data.forecast.forecastday).map((day:any)=>{
-              return <Card key={day.date} date={day.date} temp={day.day.avgtemp_c} condition={day.day.condition.text} icon={day.day.condition.icon}/>
+              return <Card 
+                key={day.date} 
+                date={day.date} 
+                temp={day.day.avgtemp_c} 
+                condition={day.day.condition.text} 
+                icon={day.day.condition.icon}
+                min_temp={day.day.maxtemp_c}
+                max_temp={day.day.mintemp_c}
+                humidity={day.day.avghumidity}
+                sunrise={day.astro.sunrise}
+                sunset={day.astro.sunset}
+              />
             })}
           </div>
         </section>
