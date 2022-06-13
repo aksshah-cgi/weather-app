@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import SearchBox from './components/SearchBox/SearchBox';
 
 function App() {
-  const [weatherData,setWeatherData] = useState<any>({})
+  const [weatherData, setWeatherData] = useState<any>({})
 
   const updateData = (data:any) => {
     setWeatherData(data);
