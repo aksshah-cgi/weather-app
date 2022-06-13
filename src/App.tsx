@@ -1,22 +1,25 @@
-import React, {useState} from 'react';
+import { useState } from 'react';
+import { CardsWrapper } from './components/CardsWrapper/';
+import { SearchBox } from './components/SearchBox/';
+import { Logo } from './components/Logo';
 import './App.css';
-import CardsWrapper from './components/CardsWrapper/CardsWrapper';
-import Header from './components/Header/Header';
-import SearchBox from './components/SearchBox/SearchBox';
 
 function App() {
-  const [weatherData,setWeatherData] = useState<any>({})
+  const [weatherData, setWeatherData] = useState<any>({})
 
-  const updateData = (data:any) => {
+  const updateData = (data: any) => {
     setWeatherData(data);
-    console.log(data);
   }
 
   return (
     <div className="app">
-      <Header/>
-      <SearchBox onSearch={updateData}/>
-      <CardsWrapper weatherData={weatherData}/>
+      <header>
+        <Logo />
+        <SearchBox onSearch={updateData} />
+      </header>
+      <main>
+        <CardsWrapper weatherData={weatherData} />
+      </main>
     </div>
   );
 }
