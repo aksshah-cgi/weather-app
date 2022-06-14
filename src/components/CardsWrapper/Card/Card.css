@@ -3,11 +3,11 @@
     align-items: center;
     flex-direction: column;
     padding: 15px;
-    margin: 10px 15px;
+    margin: 0px 15px 15px 0px;
     text-align: center;
     background: white;
-    box-shadow: 0px 4px 11px 0px #e0e0e0;
     min-width: 170px;
+    color: darkslategrey;
 }
 .temp{
     font-size: 14px;
