@@ -1,5 +1,5 @@
-# Live APP can be found here:
-[LINK](https://weatherly-aksshah.netlify.app/)
+# APP can be found here:
+[LIVE LINK](https://weatherly-aksshah.netlify.app/)
 
 
 # Getting Started with Create React App
