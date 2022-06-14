@@ -5,14 +5,8 @@
     margin: 20px 0px 0px 0px;
 }
 
-.forecast_container {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
 .image_wrapper p {
-    margin: 0px;
+    margin: 0px 0px 10px 0px;
     font-weight: bold;
 }
 
@@ -20,16 +14,23 @@
     display: flex;
     align-items: center;
 }
-
-.place_details_container {
+.essential_data + .additional_data p .value{
+    font-size: 20px;
+}
+.location_details_container {
     padding-bottom: 20px;
     border-bottom: 1px solid lightgrey;
 }
 
-.place_details_container .region {
-    margin: 5px 0px 0px 0px;
+.location_details_extra p {
+    margin: 5px 10px 0px 0px;
 }
-
+.location_details_extra .title{
+    font-weight: bold;
+}
+.location_details_extra{
+    display: flex;
+}
 .section_headline {
     margin: 20px 0px 10px 0px;
     font-size: 22px;
@@ -51,6 +52,7 @@ main section {
 h4.current_weather_temperature {
     font-size: 100px;
     margin: 0;
+    font-weight: normal;
 }
 
 h4.current_weather_temperature span {

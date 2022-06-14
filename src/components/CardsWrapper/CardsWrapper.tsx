@@ -11,17 +11,21 @@ interface ForecastDay {
   }
   day: {
     avgtemp_c: number;
+    avgtemp_f: number;
     condition: {
       text: string;
       icon: string;
     };
     mintemp_c: number;
     maxtemp_c: number;
+    mintemp_f: number;
+    maxtemp_f: number;
     avghumidity: number;
   }
 }
 
 interface Props {
+  degreeUnit: string;
   weatherData: {
     data: {
       current: {
@@ -30,7 +34,13 @@ interface Props {
           text: string;
         },
         temp_c: string;
+        temp_f: string;
         feelslike_c: number;
+        feelslike_f: number;
+        humidity: number;
+        vis_km: number;
+        wind_kph: number;
+        wind_dir: string;
       }
       error: {
         message: string;
@@ -48,6 +58,7 @@ interface Props {
         country: string;
         localtime: string;
         region: string;
+        tz_id: string;
       }
     };
     city: string;
@@ -55,7 +66,7 @@ interface Props {
 }
 
 
-export const CardsWrapper: React.FC<Props> = ({ weatherData }) => {
+export const CardsWrapper: React.FC<Props> = ({ weatherData, degreeUnit }) => {
   if (!weatherData.data) {
     return (
       <p className="error">Sorry! Data currently not available.</p>
@@ -68,29 +79,50 @@ export const CardsWrapper: React.FC<Props> = ({ weatherData }) => {
 
   return (
     <Fragment>
-      <div className="place_details_container">
+
+      <div className="location_details_container">
         <h2>{weatherData.data.location ? `${weatherData.data.location.name}, ${weatherData.data.location.country}` : ''}</h2>
-        <p className="region">Region: {weatherData.data.location.region} </p>
+        <div className='location_details_extra'>
+          <p className="region"><span className="title">Region:</span> {weatherData.data.location.region} </p>
+          <p className="timezone"><span className="title">Timezone:</span> {weatherData.data.location.tz_id}</p>
+        </div>
       </div>
+
       <section>
         <h3 className="section_headline">Current</h3>
-        <div className="forecast_container">
-          <div className="essential_data">
-            <div className="image_wrapper">
-              <p>{weatherData.data.current.condition.text}</p>
-              <img width='110' src={weatherData.data.current.condition.icon} alt={weatherData.data.current.condition.text} />
-            </div>
-            <h4 className='current_weather_temperature'>{weatherData.data.current.temp_c}° <span>C</span></h4>
+        <p><b>Date-Time:</b> <br />{weatherData.data.location.localtime}</p>
+        <div className="essential_data">
+          <div className="image_wrapper">
+            <p>{weatherData.data.current.condition.text}</p>
+            <img width='110' src={weatherData.data.current.condition.icon} alt={weatherData.data.current.condition.text} />
           </div>
-          {/* <div className="additional_data">
-            <p>
-              <span className="title">Feels Like</span>
-              <span className="value">{weatherData.data.current.feelslike_c}° C</span>
-            </p>
-          </div> */}
-
+          <h4 className='current_weather_temperature'>
+            {degreeUnit && degreeUnit == 'F' ? weatherData.data.current.temp_f : weatherData.data.current.temp_c}° <span>{!degreeUnit ? 'C' : degreeUnit}</span></h4>
+        </div>
+        <div className="additional_data">
+          <p>
+            <span className="title">Feels Like</span>
+            <span className="value">{degreeUnit && degreeUnit == 'F' ? weatherData.data.current.feelslike_f : weatherData.data.current.feelslike_c}° {!degreeUnit ? 'C' : degreeUnit}</span>
+          </p>
+          <p>
+            <span className="title">Humidity</span>
+            <span className="value">{weatherData.data.current.humidity}%</span>
+          </p>
+          <p>
+            <span className="title">Visibility</span>
+            <span className="value">{weatherData.data.current.vis_km} km</span>
+          </p>
+          <p>
+            <span className="title">Wind Speed</span>
+            <span className="value">{weatherData.data.current.wind_kph} km/h</span>
+          </p>
+          <p>
+            <span className="title">Wind Direction</span>
+            <span className="value">{weatherData.data.current.wind_dir}</span>
+          </p>
         </div>
       </section>
+
       <section>
         <h3 className="section_headline">3-Day Forecast</h3>
         <div className="cards_container">
@@ -99,18 +131,20 @@ export const CardsWrapper: React.FC<Props> = ({ weatherData }) => {
               return <Card
                 key={day.date}
                 date={day.date}
-                temp={day.day.avgtemp_c}
+                temp={degreeUnit && degreeUnit == 'F' ? day.day.avgtemp_f : day.day.avgtemp_c}
                 condition={day.day.condition.text}
                 icon={day.day.condition.icon}
-                maxTemperatureCelcius={day.day.maxtemp_c}
-                minTemperatureCelcius={day.day.mintemp_c}
+                maxTemperature={degreeUnit && degreeUnit == 'F' ? day.day.maxtemp_f : day.day.maxtemp_c}
+                minTemperature={degreeUnit && degreeUnit == 'F' ? day.day.mintemp_f : day.day.mintemp_c}
                 humidity={day.day.avghumidity}
                 sunrise={day.astro.sunrise}
                 sunset={day.astro.sunset}
+                degreeUnit={!degreeUnit? 'C' : degreeUnit}
               />
             })}
         </div>
       </section>
+
     </Fragment>
   );
 }

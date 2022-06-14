@@ -8,9 +8,10 @@ interface Props {
   icon: string;
   sunrise?: string;
   sunset?: string;
-  maxTemperatureCelcius?: number;
-  minTemperatureCelcius?: number;
+  maxTemperature?: number;
+  minTemperature?: number;
   humidity?: number;
+  degreeUnit: string;
 }
 
 export const Card: React.FC<Props> = ({
@@ -21,24 +22,25 @@ export const Card: React.FC<Props> = ({
   sunrise,
   sunset,
   humidity,
-  maxTemperatureCelcius,
-  minTemperatureCelcius
+  maxTemperature,
+  minTemperature,
+  degreeUnit
 }) => {
   return (
     <div className="card">
       <h4 className="date_time">{date}</h4>
       <p className="condition">{condition}</p>
       <img className="image" src={icon} alt={condition} />
-      <h3 className="temp">Average temperature<br /><span>{temp}° C</span></h3>
+      <h3 className="temp">Average temperature<br /><span>{temp}° {degreeUnit}</span></h3>
       <div className="additional_data_container">
         <div className="additional_data">
           <p>
             <span className="title">Min. Temp</span>
-            <span className="value">{minTemperatureCelcius}° C</span>
+            <span className="value">{minTemperature}° {degreeUnit}</span>
           </p>
           <p>
             <span className="title">Max. Temp</span>
-            <span className="value">{maxTemperatureCelcius}° C</span>
+            <span className="value">{maxTemperature}° {degreeUnit}</span>
           </p>
         </div>
         <div className="additional_data">
