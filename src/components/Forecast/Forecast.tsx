@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import { Card } from './Card'
-import './CardsWrapper.css'
+import { Card } from '../Card'
+import './Forecast.css'
 
 
 interface ForecastDay {
@@ -66,7 +66,7 @@ interface Props {
 }
 
 
-export const CardsWrapper: React.FC<Props> = ({ weatherData, degreeUnit }) => {
+export const Forecast: React.FC<Props> = ({ weatherData, degreeUnit }) => {
   if (!weatherData.data) {
     return (
       <p className="error">Sorry! Data currently not available.</p>
@@ -87,41 +87,6 @@ export const CardsWrapper: React.FC<Props> = ({ weatherData, degreeUnit }) => {
           <p className="timezone"><span className="title">Timezone:</span> {weatherData.data.location.tz_id}</p>
         </div>
       </div>
-
-      <section>
-        <h3 className="section_headline">Current</h3>
-        <p><b>Date-Time:</b> <br />{weatherData.data.location.localtime}</p>
-        <div className="essential_data">
-          <div className="image_wrapper">
-            <p>{weatherData.data.current.condition.text}</p>
-            <img width='110' src={weatherData.data.current.condition.icon} alt={weatherData.data.current.condition.text} />
-          </div>
-          <h4 className='current_weather_temperature'>
-            {degreeUnit && degreeUnit == 'F' ? weatherData.data.current.temp_f : weatherData.data.current.temp_c}° <span>{!degreeUnit ? 'C' : degreeUnit}</span></h4>
-        </div>
-        <div className="additional_data">
-          <p>
-            <span className="title">Feels Like</span>
-            <span className="value">{degreeUnit && degreeUnit == 'F' ? weatherData.data.current.feelslike_f : weatherData.data.current.feelslike_c}° {!degreeUnit ? 'C' : degreeUnit}</span>
-          </p>
-          <p>
-            <span className="title">Humidity</span>
-            <span className="value">{weatherData.data.current.humidity}%</span>
-          </p>
-          <p>
-            <span className="title">Visibility</span>
-            <span className="value">{weatherData.data.current.vis_km} km</span>
-          </p>
-          <p>
-            <span className="title">Wind Speed</span>
-            <span className="value">{weatherData.data.current.wind_kph} km/h</span>
-          </p>
-          <p>
-            <span className="title">Wind Direction</span>
-            <span className="value">{weatherData.data.current.wind_dir}</span>
-          </p>
-        </div>
-      </section>
 
       <section>
         <h3 className="section_headline">3-Day Forecast</h3>

@@ -13,6 +13,21 @@
     cursor: pointer;
 }
 .unit_changer button.active{
-    border-bottom: 2px solid white;
     padding-bottom: 5px;
+}
+.unit_changer button.active:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    display: block;
+    transition: .2s all;
+}
+.unit_changer button:after {
+    content: '';
+    height: 2px;
+    width: 0px;
+    background: white;
+    transition: .2s all;
+    display: block;
 }

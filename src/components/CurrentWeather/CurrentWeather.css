@@ -1,9 +1,27 @@
-.cards_container {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 20px 0px 0px 0px;
-    justify-content: space-between;
+.error {
+    font-size: 30px;
+    color: #e4e4e4;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-weight: lighter;
+    transform: translate(-50%, -50%);
+}
+
+h4.current_weather_temperature {
+    font-size: 75px;
+    margin: 0;
+    font-weight: normal;
+}
+@media screen and (min-width:768px){
+    h4.current_weather_temperature {
+     font-size: 100px;
+    }
+}
+
+h4.current_weather_temperature span {
+    font-size: 60px;
+    margin-left: -29px;
 }
 
 .image_wrapper p {
@@ -48,34 +66,4 @@
 
 .location_details_extra {
     display: flex;
-}
-
-.section_headline {
-    margin: 20px 0px 10px 0px;
-    font-size: 22px;
-}
-
-main section {
-    margin: 0px 0px 60px 0px;
-}
-
-.error {
-    font-size: 30px;
-    color: #e4e4e4;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    font-weight: lighter;
-    transform: translate(-50%, -50%);
-}
-
-h4.current_weather_temperature {
-    font-size: 100px;
-    margin: 0;
-    font-weight: normal;
-}
-
-h4.current_weather_temperature span {
-    font-size: 60px;
-    margin-left: -29px;
 }

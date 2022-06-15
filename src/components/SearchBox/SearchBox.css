@@ -5,9 +5,9 @@ input {
     border-bottom: 2px solid white;
     color: white;
     font-size: 18px;
-    width: 100%;
     -webkit-appearance: none;
     background: transparent;
+    width: 100%;
 }
 
 input::placeholder {
@@ -17,6 +17,7 @@ input::placeholder {
 .input_wrapper {
     max-width: 800px;
     margin: 10px 0px;
+    width: calc(100% - 30px);
 }
 
 @media screen and (min-width:1440px) {

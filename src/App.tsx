@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { CardsWrapper } from './components/CardsWrapper/';
-import { SearchBox } from './components/SearchBox/';
-import { Logo } from './components/Logo';
 import './App.css';
+import { SearchBox } from './components/SearchBox/';
+import { CurrentWeather } from './components/CurrentWeather';
+import { Logo } from './components/Logo';
 import { UnitChanger } from './components/UnitChanger';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Forecast } from './components/Forecast';
+import { Navigation } from './components/Navigation/';
 
 function App() {
   const [weatherData, setWeatherData] = useState<any>({});
@@ -18,16 +21,22 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <header>
-        <Logo />
-        <SearchBox onSearch={updateWeatherData} />
-        <UnitChanger onUnitChange={updateDegreeUnit} />
-      </header>
-      <main>
-        <CardsWrapper weatherData={weatherData} degreeUnit={degreeUnit} />
-      </main>
-    </div>
+    <Router>
+      <div className="app">
+        <header>
+          <Logo />
+          <SearchBox onSearch={updateWeatherData} />
+          <UnitChanger onUnitChange={updateDegreeUnit} />
+        </header>
+        <main>
+          <Navigation/>
+          <Routes>
+            <Route path="/" element={<CurrentWeather weatherData={weatherData} degreeUnit={degreeUnit}/>}/>
+            <Route path="/forecast" element={<Forecast weatherData={weatherData} degreeUnit={degreeUnit}/>}/>
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
