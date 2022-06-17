@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react'
 import './SearchBox.css'
 
 interface SearchDataProp {
-  onSearch: (args:{
+  onSearch: (args: {
     data: object,
     city: string
-  }) => void
+  }) => void;
 }
 
 export const SearchBox: React.FC<SearchDataProp> = ({ onSearch }) => {
@@ -31,7 +31,7 @@ export const SearchBox: React.FC<SearchDataProp> = ({ onSearch }) => {
   }, [queriedCity])
 
   return (
-    <div className="input_wrapper">
+    <div className='searchbox input_wrapper'>
       <input
         autoFocus
         type="text"

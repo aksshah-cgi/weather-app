@@ -9,6 +9,9 @@ nav{
     margin-bottom: 20px;
     display: flex;
 }
+nav a{
+    font-weight: bold;
+}
 nav a:after{
     content: '';
     width: 0px;

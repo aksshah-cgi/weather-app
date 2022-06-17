@@ -24,10 +24,10 @@ export const Card: React.FC<Props> = ({
   humidity,
   maxTemperature,
   minTemperature,
-  degreeUnit
+  degreeUnit,
 }) => {
   return (
-    <div className="card">
+    <div className='card'>
       <h4 className="date_time">{date}</h4>
       <p className="condition">{condition}</p>
       <img className="image" src={icon} alt={condition} />

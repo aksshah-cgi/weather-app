@@ -59,4 +59,9 @@
     margin: 0px;
     width: 50%;
 }
-
+.Dark .card{
+    background: rgba(0,0,0,0.7);
+}
+.Dark .card *{
+    color: white;
+}

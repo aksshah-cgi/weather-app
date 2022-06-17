@@ -1,16 +1,16 @@
-input {
-    padding: 5px 0px 2px 0px;
+.searchbox input {
+    padding: 7px 15px;
     outline: none;
-    border: none;
-    border-bottom: 2px solid white;
-    color: white;
-    font-size: 18px;
+    border-radius: 50px;
+    color: #454545;
+    font-size: 16px;
     -webkit-appearance: none;
-    background: transparent;
+    background: white;
     width: 100%;
+    border: 1px solid white;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
 }
-
-input::placeholder {
+.searchbox input::placeholder {
     color: white;
 }
 

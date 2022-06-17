@@ -80,7 +80,7 @@ export const Forecast: React.FC<Props> = ({ weatherData, degreeUnit }) => {
   return (
     <Fragment>
 
-      <div className="location_details_container">
+      <div className='location_details_container'>
         <h2>{weatherData.data.location ? `${weatherData.data.location.name}, ${weatherData.data.location.country}` : ''}</h2>
         <div className='location_details_extra'>
           <p className="region"><span className="title">Region:</span> {weatherData.data.location.region} </p>
@@ -104,7 +104,7 @@ export const Forecast: React.FC<Props> = ({ weatherData, degreeUnit }) => {
                 humidity={day.day.avghumidity}
                 sunrise={day.astro.sunrise}
                 sunset={day.astro.sunset}
-                degreeUnit={!degreeUnit? 'C' : degreeUnit}
+                degreeUnit={!degreeUnit ? 'C' : degreeUnit}
               />
             })}
         </div>

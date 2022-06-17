@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './UnitChanger.css';
 
 interface Props {
@@ -8,23 +8,29 @@ interface Props {
 export const UnitChanger: React.FC<Props> = ({ onUnitChange }) => {
     const [degreeUnit, setDegreeUnit] = useState<string>('C');
 
-    const updateUnit = (unit:string) => { 
+    const updateUnit = (unit: string) => {
+        unit = (unit == 'C' ? 'F' : 'C');
         setDegreeUnit(unit);
         onUnitChange(unit);
     }
 
     return (
-        <div className="unit_changer">
+        <div className='unit_changer'>
             <button
                 type="button"
                 className={degreeUnit == 'C' ? 'active' : 'inactive'}
-                onClick={e => { updateUnit('C') }}
             >°C</button>
-            |
+            <input
+                type="checkbox"
+                className="toggle"
+                id="toggle_unit"
+                title="Toggle temperature unit"
+                value={degreeUnit}
+                onChange={e => updateUnit(degreeUnit)}></input>
+            <label htmlFor="toggle_unit"></label>
             <button
                 type="button"
                 className={degreeUnit == 'F' ? 'active' : 'inactive'}
-                onClick={e => { updateUnit('F') }}
             >°F</button>
         </div>
     )

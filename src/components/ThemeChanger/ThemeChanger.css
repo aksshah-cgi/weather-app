@@ -1,11 +1,10 @@
-.unit_changer {
+.theme_changer {
     position: absolute;
-    left: 150px;
     display: flex;
-    align-items: center;
+    left: 18px;
 }
 
-.unit_changer button {
+.theme_changer button {
     background: none;
     box-shadow: none;
     border: none;
@@ -15,9 +14,9 @@
     cursor: pointer;
 }
 
-@media screen and (min-width:768px){
-    .unit_changer {
+@media screen and (min-width:768px) {
+    .theme_changer {
         left: auto;
-        right: 30px;
+        right: 140px;
     }
 }
