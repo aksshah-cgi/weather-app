@@ -1,66 +1,12 @@
 import { Fragment } from 'react';
-import { Card } from '../Card'
+import { WeatherDataDTO } from '../../Interfaces/WeatherDataDTO/WeatherDataDTO';
+import { DayCard } from '../Cards/DayCard'
 import './Forecast.css'
-
-
-interface ForecastDay {
-  date: string;
-  astro: {
-    sunrise: string;
-    sunset: string;
-  }
-  day: {
-    avgtemp_c: number;
-    avgtemp_f: number;
-    condition: {
-      text: string;
-      icon: string;
-    };
-    mintemp_c: number;
-    maxtemp_c: number;
-    mintemp_f: number;
-    maxtemp_f: number;
-    avghumidity: number;
-  }
-}
 
 interface Props {
   degreeUnit: string;
   weatherData: {
-    data: {
-      current: {
-        condition: {
-          icon: string;
-          text: string;
-        },
-        temp_c: string;
-        temp_f: string;
-        feelslike_c: number;
-        feelslike_f: number;
-        humidity: number;
-        vis_km: number;
-        wind_kph: number;
-        wind_dir: string;
-      }
-      error: {
-        message: string;
-        code: number;
-      }
-      forecast: {
-        forecastday: {
-          one: ForecastDay;
-          two: ForecastDay;
-          three: ForecastDay;
-        }
-      }
-      location: {
-        name: string;
-        country: string;
-        localtime: string;
-        region: string;
-        tz_id: string;
-      }
-    };
+    data: WeatherDataDTO;
     city: string;
   };
 }
@@ -93,7 +39,7 @@ export const Forecast: React.FC<Props> = ({ weatherData, degreeUnit }) => {
         <div className="cards_container">
           {weatherData.data.forecast && weatherData.data.location &&
             Object.values(weatherData.data.forecast.forecastday).map((day: any) => {
-              return <Card
+              return (<DayCard
                 key={day.date}
                 date={day.date}
                 temp={degreeUnit && degreeUnit == 'F' ? day.day.avgtemp_f : day.day.avgtemp_c}
@@ -105,7 +51,8 @@ export const Forecast: React.FC<Props> = ({ weatherData, degreeUnit }) => {
                 sunrise={day.astro.sunrise}
                 sunset={day.astro.sunset}
                 degreeUnit={!degreeUnit ? 'C' : degreeUnit}
-              />
+                weatherDataHourly={day.hour}
+              />);
             })}
         </div>
       </section>

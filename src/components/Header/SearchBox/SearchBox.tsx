@@ -18,6 +18,7 @@ export const SearchBox: React.FC<SearchDataProp> = ({ onSearch }) => {
     const forecast_weather_url = `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${queriedCity}&days=5&alerts=yes`;
     axios.get(forecast_weather_url).then(
       (response) => {
+        console.log(response.data);
         onSearch({
           data: response.data,
           city: queriedCity

@@ -15,7 +15,7 @@
     cursor: pointer;
 }
 
-@media screen and (min-width:768px){
+@media screen and (min-width:768px) {
     .unit_changer {
         left: auto;
         right: 30px;

@@ -4,25 +4,29 @@ nav * {
     text-decoration: none;
     margin-right: 20px;
 }
-nav{
+
+nav {
     padding: 0px 0px 10px 0px;
     margin-bottom: 20px;
     display: flex;
 }
-nav a{
+
+nav a {
     font-weight: bold;
 }
-nav a:after{
+
+nav a:after {
     content: '';
     width: 0px;
-    height: 0.5px;
-    background:white;
+    height: 2px;
+    background: white;
     display: block;
     transition: .2s;
     position: relative;
 }
-nav a.active:after{
-  width: 100%;
-  transition: .2s;
-  bottom:-3px;
+
+nav a.active:after {
+    width: 100%;
+    transition: .2s;
+    bottom: -3px;
 }

@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import './App.css';
-import { SearchBox } from './components/SearchBox/';
+import {
+  Logo,
+  SearchBox,
+  Navigation,
+  ThemeChanger,
+  UnitChanger
+} from './components/Header'
 import { CurrentWeather } from './components/CurrentWeather';
-import { Logo } from './components/Logo';
-import { UnitChanger } from './components/UnitChanger';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Forecast } from './components/Forecast';
-import { Navigation } from './components/Navigation/';
-import { ThemeChanger } from './components/ThemeChanger';
 
 function App() {
   const [weatherData, setWeatherData] = useState<any>({});
@@ -30,9 +32,9 @@ function App() {
     <Router>
       <div className="app">
         <header>
-          <Logo/>
+          <Logo />
           <SearchBox onSearch={updateWeatherData} />
-          <ThemeChanger  onModeChange={updateThemeMode} />
+          <ThemeChanger onModeChange={updateThemeMode} />
           <UnitChanger onUnitChange={updateDegreeUnit} />
         </header>
         <main>

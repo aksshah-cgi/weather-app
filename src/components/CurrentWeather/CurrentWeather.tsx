@@ -1,65 +1,11 @@
-import { Fragment } from 'react';
 import './CurrentWeather.css'
+import { WeatherDataDTO } from '../../Interfaces/WeatherDataDTO/WeatherDataDTO';
 
-
-interface ForecastDay {
-  date: string;
-  astro: {
-    sunrise: string;
-    sunset: string;
-  }
-  day: {
-    avgtemp_c: number;
-    avgtemp_f: number;
-    condition: {
-      text: string;
-      icon: string;
-    };
-    mintemp_c: number;
-    maxtemp_c: number;
-    mintemp_f: number;
-    maxtemp_f: number;
-    avghumidity: number;
-  }
-}
 
 interface Props {
   degreeUnit: string;
   weatherData: {
-    data: {
-      current: {
-        condition: {
-          icon: string;
-          text: string;
-        },
-        temp_c: string;
-        temp_f: string;
-        feelslike_c: number;
-        feelslike_f: number;
-        humidity: number;
-        vis_km: number;
-        wind_kph: number;
-        wind_dir: string;
-      }
-      error: {
-        message: string;
-        code: number;
-      }
-      forecast: {
-        forecastday: {
-          one: ForecastDay;
-          two: ForecastDay;
-          three: ForecastDay;
-        }
-      }
-      location: {
-        name: string;
-        country: string;
-        localtime: string;
-        region: string;
-        tz_id: string;
-      }
-    };
+    data: WeatherDataDTO
     city: string;
   };
 }
@@ -77,7 +23,7 @@ export const CurrentWeather: React.FC<Props> = ({ weatherData, degreeUnit }) => 
   }
 
   return (
-    <Fragment>
+    <>
       <div className='location_details_container'>
         <h2>{weatherData.data.location ? `${weatherData.data.location.name}, ${weatherData.data.location.country}` : ''}</h2>
         <div className='location_details_extra'>
@@ -94,12 +40,12 @@ export const CurrentWeather: React.FC<Props> = ({ weatherData, degreeUnit }) => 
             <img width='110' src={weatherData.data.current.condition.icon} alt={weatherData.data.current.condition.text} />
           </div>
           <h4 className='current_weather_temperature'>
-            {degreeUnit && degreeUnit == 'F' ? weatherData.data.current.temp_f : weatherData.data.current.temp_c}° <span>{!degreeUnit ? 'C' : degreeUnit}</span></h4>
+            {degreeUnit && degreeUnit == 'F' ? weatherData.data.current.temp_f : weatherData.data.current.temp_c}&deg; <span>{!degreeUnit ? 'C' : degreeUnit}</span></h4>
         </div>
         <div className="additional_data">
           <p>
             <span className="title">Feels Like</span>
-            <span className="value">{degreeUnit && degreeUnit == 'F' ? weatherData.data.current.feelslike_f : weatherData.data.current.feelslike_c}° {!degreeUnit ? 'C' : degreeUnit}</span>
+            <span className="value">{degreeUnit && degreeUnit == 'F' ? weatherData.data.current.feelslike_f : weatherData.data.current.feelslike_c}&deg; {!degreeUnit ? 'C' : degreeUnit}</span>
           </p>
           <p>
             <span className="title">Humidity</span>
@@ -119,6 +65,6 @@ export const CurrentWeather: React.FC<Props> = ({ weatherData, degreeUnit }) => 
           </p>
         </div>
       </section>
-    </Fragment>
+    </>
   );
 }

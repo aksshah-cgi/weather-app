@@ -18,7 +18,7 @@ export const ThemeChanger: React.FC<Props> = ({ onModeChange }) => {
     }
 
     return (
-        <div className={`${!mode ? 'Dark' : mode} theme_changer`}>
+        <div className='theme_changer'>
             <button
                 type="button"
                 className={mode == 'Dark' ? 'active' : 'inactive'}
@@ -28,7 +28,7 @@ export const ThemeChanger: React.FC<Props> = ({ onModeChange }) => {
                 className="toggle"
                 id="toggle_theme"
                 title="Toggle theme"
-                onChange={e => updateThemeMode(mode)}
+                onChange={() => updateThemeMode(mode)}
             ></input>
             <label htmlFor="toggle_theme"></label>
             <button
