@@ -3,14 +3,16 @@ import './App.css';
 import {
   Logo,
   SearchBox,
-  Navigation,
   ThemeChanger,
   UnitChanger,
   LanguageChanger
 } from './components/Header'
-import { Current } from './components/Main/Current';
+import {
+  Current,
+  Forecast,
+  Navigation
+} from './components/Main';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Forecast } from './components/Main/Forecast';
 
 function App() {
   const [weatherData, setWeatherData] = useState<any>({});
