@@ -8,8 +8,8 @@
 main {
     padding: 20px 20px 30px 20px;
     width: calc(100% - 40px);
-    margin: 150px 0px 0px 0px;
-    height: calc(100vh - 160px);
+    margin: 220px 0px 0px 0px;
+    height: calc(100vh - 310px);
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -44,12 +44,13 @@ footer *{
 
 @media screen and (min-width:1440px) {
     header {
-        align-items: center;
-        flex-direction: row;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 20px;
     }
     main {
-        margin:100px 0px 0px 0px;
-        height: calc(100vh - 110px);
+        margin: 140px 0px 0px 0px;
+        height: calc(100vh - 170px);
         padding: 0 20px;
     }
 }

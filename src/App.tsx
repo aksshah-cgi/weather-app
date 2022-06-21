@@ -39,10 +39,11 @@ function App() {
           <SearchBox onSearch={updateWeatherData} />
           <ThemeChanger onModeChange={updateThemeMode} />
           <UnitChanger onUnitChange={updateDegreeUnit} />
-          <LanguageChanger/>
+          <LanguageChanger />
+          <Navigation mode={themeMode} />
         </header>
         <main>
-          <Navigation mode={themeMode} />
+     
           <Routes>
             <Route path="/" element={<Current weatherData={weatherData} degreeUnit={degreeUnit} />} />
             <Route path="/forecast" element={<Forecast weatherData={weatherData} degreeUnit={degreeUnit} />} />
