@@ -5,7 +5,8 @@ import {
   SearchBox,
   Navigation,
   ThemeChanger,
-  UnitChanger
+  UnitChanger,
+  LanguageChanger
 } from './components/Header'
 import { CurrentWeather } from './components/CurrentWeather';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -36,6 +37,7 @@ function App() {
           <SearchBox onSearch={updateWeatherData} />
           <ThemeChanger onModeChange={updateThemeMode} />
           <UnitChanger onUnitChange={updateDegreeUnit} />
+          <LanguageChanger/>
         </header>
         <main>
           <Navigation mode={themeMode} />
@@ -44,6 +46,9 @@ function App() {
             <Route path="/forecast" element={<Forecast weatherData={weatherData} degreeUnit={degreeUnit} />} />
           </Routes>
         </main>
+        <footer>
+          Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a>
+        </footer>
       </div>
     </Router>
   );

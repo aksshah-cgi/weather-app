@@ -1,10 +1,10 @@
-.theme_changer {
+.language_changer {
     position: absolute;
     display: flex;
-    left: 119px;
+    left: 15px;
 }
 
-.theme_changer button {
+.language_changer button {
     background: none;
     box-shadow: none;
     border: none;
@@ -15,8 +15,8 @@
 }
 
 @media screen and (min-width:768px) {
-    .theme_changer {
+    .language_changer {
         left: auto;
-        right: 140px;
+        right: 288px;
     }
 }

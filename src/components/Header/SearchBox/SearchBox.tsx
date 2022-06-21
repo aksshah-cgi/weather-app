@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
-import './SearchBox.css'
+import React, { useState, useEffect } from 'react';
+import './SearchBox.css';
+import { useTranslation } from 'react-i18next'
 
 interface SearchDataProp {
   onSearch: (args: {
@@ -10,7 +11,8 @@ interface SearchDataProp {
 }
 
 export const SearchBox: React.FC<SearchDataProp> = ({ onSearch }) => {
-
+  
+  const { t } = useTranslation();
   const [queriedCity, setQueriedCity] = useState<string>('Berlin');
 
   const getWeatherData = () => {
@@ -37,7 +39,7 @@ export const SearchBox: React.FC<SearchDataProp> = ({ onSearch }) => {
         autoFocus
         type="text"
         className="search-bar"
-        placeholder="Enter city name"
+        placeholder={t('SearchBox.placeholder')}
         onChange={e => setQueriedCity(e.target.value)}
         value={queriedCity} />
     </div>

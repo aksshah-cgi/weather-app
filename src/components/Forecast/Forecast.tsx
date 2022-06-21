@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { WeatherDataDTO } from '../../Interfaces/WeatherDataDTO/WeatherDataDTO';
 import { DayCard } from '../Cards/DayCard'
 import './Forecast.css'
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   degreeUnit: string;
@@ -13,29 +14,30 @@ interface Props {
 
 
 export const Forecast: React.FC<Props> = ({ weatherData, degreeUnit }) => {
-  if (!weatherData.data) {
+  const { t } = useTranslation();
+
+   if (!weatherData.data) {
     return (
-      <p className="error">Sorry! Data currently not available.</p>
+      <p className="error">{t('WeatherData.dataNotAvailable')}</p>
     );
   }
 
   if (weatherData.data.error) {
-    return (<p className="error">Oops! {weatherData.data.error.message}</p>)
+    return (<p className="error">{t('WeatherData.cityNotFound')}</p>)
   }
 
   return (
     <Fragment>
-
       <div className='location_details_container'>
         <h2>{weatherData.data.location ? `${weatherData.data.location.name}, ${weatherData.data.location.country}` : ''}</h2>
         <div className='location_details_extra'>
-          <p className="region"><span className="title">Region:</span> {weatherData.data.location.region} </p>
-          <p className="timezone"><span className="title">Timezone:</span> {weatherData.data.location.tz_id}</p>
+        <p className="region"><span className="title">{t('WeatherData.region')}:</span> {weatherData.data.location.region} </p>
+          <p className="timezone"><span className="title">{t('WeatherData.timezone')}:</span> {weatherData.data.location.tz_id}</p>
         </div>
       </div>
 
       <section>
-        <h3 className="section_headline">3-Day Forecast</h3>
+        <h3 className="section_headline">{t('WeatherData.3-day-forecast')}</h3>
         <div className="cards_container">
           {weatherData.data.forecast && weatherData.data.location &&
             Object.values(weatherData.data.forecast.forecastday).map((day: any) => {
