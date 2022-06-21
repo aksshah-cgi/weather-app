@@ -1,7 +1,7 @@
 import React from 'react';
 import './HourlyCard.css';
 import { useTranslation } from 'react-i18next';
-import { ForecastHourDetails } from '../../../Interfaces/WeatherDataDTO/WeatherDataDTO';
+import { ForecastHourDetails } from '../../../../Interfaces/WeatherDataDTO/WeatherDataDTO';
 
 interface Props {
     hourlyForecast: object;

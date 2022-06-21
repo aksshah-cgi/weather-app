@@ -8,9 +8,9 @@ import {
   UnitChanger,
   LanguageChanger
 } from './components/Header'
-import { CurrentWeather } from './components/CurrentWeather';
+import { Current } from './components/Main/Current';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Forecast } from './components/Forecast';
+import { Forecast } from './components/Main/Forecast';
 
 function App() {
   const [weatherData, setWeatherData] = useState<any>({});
@@ -42,7 +42,7 @@ function App() {
         <main>
           <Navigation mode={themeMode} />
           <Routes>
-            <Route path="/" element={<CurrentWeather weatherData={weatherData} degreeUnit={degreeUnit} />} />
+            <Route path="/" element={<Current weatherData={weatherData} degreeUnit={degreeUnit} />} />
             <Route path="/forecast" element={<Forecast weatherData={weatherData} degreeUnit={degreeUnit} />} />
           </Routes>
         </main>

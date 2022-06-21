@@ -1,5 +1,5 @@
-import './CurrentWeather.css'
-import { WeatherDataDTO } from '../../Interfaces/WeatherDataDTO/WeatherDataDTO';
+import './Current.css'
+import { WeatherDataDTO } from '../../../Interfaces/WeatherDataDTO/WeatherDataDTO';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 }
 
 
-export const CurrentWeather: React.FC<Props> = ({ weatherData, degreeUnit }) => {
+export const Current: React.FC<Props> = ({ weatherData, degreeUnit }) => {
   const { t } = useTranslation();
 
   if (!weatherData.data) {

@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import { WeatherDataDTO } from '../../Interfaces/WeatherDataDTO/WeatherDataDTO';
-import { DayCard } from '../Cards'
+import { WeatherDataDTO } from '../../../Interfaces/WeatherDataDTO/WeatherDataDTO';
+import { DayCard } from '../../Main/Cards'
 import './Forecast.css'
 import { useTranslation } from 'react-i18next';
 
