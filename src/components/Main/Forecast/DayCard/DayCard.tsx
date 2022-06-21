@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { HourlyCard } from '../';
+import { HourlyCard } from './HourlyCard';
 import './DayCard.css'
 import { useTranslation } from 'react-i18next';
 
