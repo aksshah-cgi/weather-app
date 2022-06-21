@@ -20,11 +20,11 @@ export const LanguageChanger: React.FC = () => {
             <input
                 type="checkbox"
                 className="toggle"
-                id="toggle_theme"
-                title="Toggle theme"
+                id="toggle_language"
+                title="Toggle language"
                 onChange={() => updateLanguage(language)}
             ></input>
-            <label htmlFor="toggle_theme"></label>
+            <label htmlFor="toggle_language"></label>
             <button
                 type="button"
                 value='de'
