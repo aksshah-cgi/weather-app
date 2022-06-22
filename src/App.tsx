@@ -5,12 +5,12 @@ import {
   SearchBox,
   ThemeChanger,
   UnitChanger,
-  LanguageChanger
+  LanguageChanger,
+  Navigation
 } from './components/Header'
 import {
   Current,
-  Forecast,
-  Navigation
+  Forecast
 } from './components/Main';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
